@@ -28,8 +28,8 @@ if (isset($_POST['cadastrar'])) {
         $cep = $_POST['cep'];
     endif;
 } else {
-    $stmt = $conn->prepare("INSERT INTO usuarios (first_name, last_name, username, estado, cidade, cep)
-    VALUES(:first_name, :last_name, :username, :estado, :cidade, :cep)");
+    $stmt = $conn->prepare("INSERT INTO usuarios (first_name, last_name, username, estado, cidade, cep, data_cadastro)
+    VALUES(:first_name, :last_name, :username, :estado, :cidade, :cep, NOW() )");
 }
 
 $stmt->bindParam(':first_name', $firstName, PDO::PARAM_STR);
