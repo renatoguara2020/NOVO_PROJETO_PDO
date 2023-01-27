@@ -1,7 +1,6 @@
 <?php
 
-//var_dump($_POST);
-$_SESSION['cadastroPessoas'][] = $POST;
+$conn = new PDO('mysql:host=localhost; dbname=login', 'root', '');
 
 if (isset($_POST['cadastrar'])) {
     if (isset($_POST['first_name'])):
@@ -27,22 +26,31 @@ if (isset($_POST['cadastrar'])) {
     if (isset($_POST['cep'])):
         $cep = $_POST['cep'];
     endif;
-} else {
+
     $stmt = $conn->prepare("INSERT INTO usuarios (first_name, last_name, username, estado, cidade, cep, data_cadastro)
-    VALUES(:first_name, :last_name, :username, :estado, :cidade, :cep, NOW() )");
-}
+    VALUES(:first_name, :last_name, :username, :estado, :cidade, :cep, NOW() ) ");
 
-$stmt->bindParam(':first_name', $firstName, PDO::PARAM_STR);
-$stmt->bindParam(':last_name', $lastName, PDO::PARAM_STR);
-$stmt->bindParam(':username', $username, PDO::PARAM_STR);
-$stmt->bindParam(':estado', $estado, PDO::PARAM_STR);
-$stmt->bindParam(':cidde', $cidade, PDO::PARAM_STR);
-$stmt->bindParam(':cep', $cep, PDO::PARAM_STR);
+    $stmt->bindValue(':first_name', $firstName, PDO::PARAM_STR);
+    $stmt->bindValue(':last_name', $lastName, PDO::PARAM_STR);
+    $stmt->bindValue(':username', $username, PDO::PARAM_STR);
+    $stmt->bindValue(':estado', $estado, PDO::PARAM_STR);
+    $stmt->bindValue(':cidade', $cidade, PDO::PARAM_STR);
+    $stmt->bindValue(':cep', $cep, PDO::PARAM_STR);
 
-$stmt->execute();
+    $stmt->execute();
 
-if ($stmt->rowCount() > 0) {
-    echo 'Usuário Cadastrado com Sucesso';
-} else {
-    echo 'Usuário  não foi cadastrado ';
+    // $stmt->execute([
+    //     ':first_name' => $firstName,
+    //     ':last_name' => $lastName,
+    //     ':username' => $username,
+    //     ':estado' => $estado,
+    //     ':cidade' => $cidade,
+    //     ':cep' => $cep,
+    // ]);
+
+    if ($stmt->rowCount() > 0) {
+        echo 'Usuário Cadastrado com Sucesso';
+    } else {
+        echo 'Usuário  não foi cadastrado ';
+    }
 }
