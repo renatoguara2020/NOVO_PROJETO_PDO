@@ -1,5 +1,7 @@
 <?php
 
+error_reporting(0);
+
 include_once 'connection.php';
 
 if (isset($_POST['Update'])) {
@@ -32,7 +34,7 @@ if (isset($_POST['Update'])) {
         endif;
     } else {
 
-        $stmt = $conn->prepare("UPDATE usuarios SET first_name =:first_name, last_name =:last_name, username=:username, cidade=:cidade, cep=:cep WHERE id=:id ");
+        $stmt = $conn->prepare("UPDATE usuarios SET first_name =:first_name, last_name =:last_name, username=:username, cidade=:cidade, cep=:cep WHERE id= :id");
 
         $stmt->bindParam(':id', $id);
         $stmt->bindParam(':first_name', $first_name, PDO::PARAM_STR);
@@ -42,7 +44,7 @@ if (isset($_POST['Update'])) {
         $stmt->bindParam(':cep', $cep);
         $stmt->execute();
 
-        //header('Location: http://localhost/testes_php_2023/index.php');
+        header('Location: listar.php');
     }
 }
 ?>
@@ -94,7 +96,7 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
 
         
 
-         <input type="hidden" name='id' value=<?php echo  $_GET['id']; ?> />
+         <input type="hidden" name='id' value="<?php echo ($_GET['id']); ?>" />
 
         <input type="submit" name="Update" value="Adicionar" class="btn btn-warning" />
     </form>
