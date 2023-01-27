@@ -10,13 +10,8 @@ if (isset($_POST['Update'])) {
     $cidade = $_POST['cidade'];
     $cep = $_POST['cep'];
 
-    if (
-        empty($first_name) ||
-        empty($last_name) ||
-        empty($username) ||
-        empty($cidade) ||
-        empty($cep)
-    ) {
+    if (empty($first_name) || empty($last_name) || empty($username) || empty($cidade) || empty($cep)){
+
         if (!isset($first_name)) {
             echo '<div class="alert alert-danger"> Digite seu nome </div>';
         }
@@ -36,9 +31,8 @@ if (isset($_POST['Update'])) {
             echo '<div class="alert alert-danger"> Digite seu  Cep</div>';
         }
     } else {
-        $stmt = $conn->prepare(
-            'UPDATE usuarios SET first_name =:first_name, last_name =:last_name,username=:username,cidade=:cidade, cep=:cep WHERE id=:id'
-        );
+
+        $stmt = $conn->prepare("UPDATE usuarios SET first_name =:first_name, last_name =:last_name, username=:username, cidade=:cidade, cep=:cep WHERE id=:id ");
 
         $stmt->bindParam(':id', $id);
         $stmt->bindParam(':first_name', $first_name, PDO::PARAM_STR);
@@ -57,12 +51,12 @@ if (isset($_POST['Update'])) {
 <?php
 $id = $_GET['id'];
 
-$stmt = $conn->prepare('SELECT  * FROM usuarios WHERE id=:id');
+$stmt = $conn->prepare("SELECT  * FROM usuarios WHERE id=:id");
 
 $stmt->execute(array(':id' => $id));
 
 while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-    $id = $row['id'];
+    //$id = $row['id'];
     $first_name = $row['first_name'];
     $last_name = $row['last_name'];
     $username = $row['username'];
@@ -87,26 +81,22 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
 
     <form action="edit.php" method="post">
         <label class="form-label">Nome:</label>
-        <input type="text" name="first_name" class="form-control" value="<?php echo $first_name; ?>"
-            placeholder="Digite seu Nome" />
+        <input type="text" name="first_name" class="form-control" value="<?php echo $first_name; ?>" placeholder="Digite seu Nome" />
         <label class="form-label">Sobrenome:</label>
-        <input type="text" name="last_name" class="form-control" value="<?php echo $last_name; ?>"
-            placeholder="Digite seu Email" />
+        <input type="text" name="last_name" class="form-control" value="<?php echo $last_name; ?>" placeholder="Digite seu Sobrenome" />
         <label class="form-label">Username</label>
-        <input type="text" name="username" class="form-control" value="<?php echo $username; ?>"
-            placeholder="Digite seu username" />
+        <input type="text" name="username" class="form-control" value="<?php echo $username; ?>" placeholder="Digite seu Username" />
         <label class="form-label">Cidade</label>
-        <input type="text" name="cidade" class="form-control" value="<?php echo $cidade; ?>"
-            placeholder="Digite sua cidade" />
+        <input type="text" name="cidade" class="form-control" value="<?php echo $cidade; ?>" placeholder="Digite sua Cidade" />
 
         <label class="form-label">Cep</label>
         <input type="text" name="cep" class="form-control" value="<?php echo $cep; ?>" placeholder="Digite seu Cep" />
 
         
 
-         <input type="hidden" name='id' value="<?php echo $_GET['id']; ?>" > 
+         <input type="hidden" name='id' value=<?php echo  $_GET['id']; ?> />
 
-        <input type="submit" name="Update" value="Adicionar" class="btn btn-warning" />
+        <input type="submit" name="Update" value="Adicionar" class="btn btn-warning" >
     </form>
 </body>
 
