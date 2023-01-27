@@ -13,14 +13,14 @@
     <title>Document</title>
   </head>
   <body>
-    <form class="row g-3 needs-validation" novalidate>
+    <form class="row g-3 needs-validation" action="salvar.php" method="post">
       <div class="col-md-4">
         <label for="validationCustom01" class="form-label">First name</label>
         <input
           type="text"
           class="form-control"
           id="validationCustom01"
-          value="Mark"
+          name="first_name"
           required
         />
         <div class="valid-feedback">Looks good!</div>
@@ -30,7 +30,7 @@
         <input
           type="text"
           class="form-control"
-          id="validationCustom02"
+          name="last_name"
           value="Otto"
           required
         />
@@ -45,7 +45,7 @@
           <input
             type="text"
             class="form-control"
-            id="validationCustomUsername"
+            name="username"
             aria-describedby="inputGroupPrepend"
             required
           />
@@ -57,14 +57,14 @@
         <input
           type="text"
           class="form-control"
-          id="validationCustom03"
+          name="cidade"
           required
         />
         <div class="invalid-feedback">Please provide a valid city.</div>
       </div>
       <div class="col-md-3">
         <label for="validationCustom04" class="form-label">State</label>
-        <select class="form-select" id="validationCustom04" required>
+        <select class="form-select" id="validationCustom04" >
           <option selected disabled value="">Choose...</option>
           <option>...</option>
         </select>
@@ -75,7 +75,7 @@
         <input
           type="text"
           class="form-control"
-          id="validationCustom05"
+          name="cep"
           required
         />
         <div class="invalid-feedback">Please provide a valid zip.</div>
