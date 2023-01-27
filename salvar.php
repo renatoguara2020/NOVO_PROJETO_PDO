@@ -50,6 +50,7 @@ if (isset($_POST['cadastrar'])) {
 
     if ($stmt->rowCount() > 0) {
         echo 'Usuário Cadastrado com Sucesso';
+        header('Location:listar.php');
     } else {
         echo 'Usuário  não foi cadastrado ';
     }
