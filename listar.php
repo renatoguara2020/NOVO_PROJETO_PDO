@@ -28,10 +28,9 @@ $conn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
             <th scope="col">Nome</th>
             <th scope="col">Sobrenome</th>
             <th scope="col">Username</th>
-            <th scope="col">Estado</th>
             <th scope="col">Cidade</th>
             <th scope="col">CEP</th>
-            <th scope="col">Data Cadastro</th> -->
+
             <th scope="col">Update | Delete</th>
         </thead>
         <?php
@@ -41,10 +40,8 @@ $conn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
             echo '<td>' . $row['first_name'] . '</td>';
             echo '<td>' . $row['last_name'] . '</td>';
             echo '<td>' . $row['username'] . '</td>';
-            echo '<td>' . $row['estado'] . '</td>';
             echo '<td>' . $row['cidade'] . '</td>';
             echo '<td>' . $row['cep'] . '</td>';
-            echo '<td>' . $row['data_cadastro'] . '</td>';
             echo "<td><a href=\"edit.php?id=$row[id]\">Update</a> | <a href=\"delete.php?id=$row[id]\" onClick=\"return confirm('Are you sure you want to delete?')\">Delete</a></td>";
         }
         echo '</tr>';
