@@ -12,24 +12,24 @@ if (isset($_POST['Update'])) {
 
     if (empty($first_name) || empty($last_name) || empty($username) || empty($cidade) || empty($cep)){
 
-        if (!isset($first_name)) {
+        if (!isset($first_name)):
             echo '<div class="alert alert-danger"> Digite seu nome </div>';
-        }
-        if (!isset($last_name)) {
+        endif;
+        if (!isset($last_name)):
             echo '<div class="alert alert-danger"> Digite seu sobrenome</div>';
-        }
+        endif;
 
-        if (!isset($username)) {
+        if (!isset($username)):
             echo '<div class="alert alert-danger">Digite a seu username</div>';
-        }
+        endif;
 
-        if (!isset($cidade)) {
+        if (!isset($cidade)):
             echo '<div class="alert alert-danger"> Digite sua Cidade</div>';
-        }
+        endif;
 
-        if (!isset($cep)) {
+        if (!isset($cep)):
             echo '<div class="alert alert-danger"> Digite seu  Cep</div>';
-        }
+        endif;
     } else {
 
         $stmt = $conn->prepare("UPDATE usuarios SET first_name =:first_name, last_name =:last_name, username=:username, cidade=:cidade, cep=:cep WHERE id=:id ");
@@ -96,7 +96,7 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
 
          <input type="hidden" name='id' value=<?php echo  $_GET['id']; ?> />
 
-        <input type="submit" name="Update" value="Adicionar" class="btn btn-warning" >
+        <input type="submit" name="Update" value="Adicionar" class="btn btn-warning" />
     </form>
 </body>
 
