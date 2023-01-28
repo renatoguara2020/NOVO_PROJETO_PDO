@@ -20,7 +20,7 @@ $conn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
 <body><br><br>
     
     <!-- <a href="cadastrar.html">Cadastrar Usuário</a> -->
-    <a href="cadastrar.html" class="btn btn-success ">Cadastrar</a><br><br>
+    <a href="cadastrar.html" class="btn btn-success btn-lg">Cadastrar</a><br><br>
     <table class="table table-striped table-hover">
 
         <thead>
