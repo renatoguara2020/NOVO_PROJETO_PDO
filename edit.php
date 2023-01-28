@@ -1,6 +1,6 @@
 <?php
 
-error_reporting(0);
+//error_reporting(0);
 
 include_once 'connection.php';
 
@@ -55,7 +55,7 @@ $id = $_GET['id'];
 
 $stmt = $conn->prepare("SELECT  * FROM usuarios WHERE id=:id");
 
-$stmt->execute(array(':id' => $id));
+$stmt->execute(array('id' => $id));
 
 while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
     //$id = $row['id'];
@@ -92,13 +92,13 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
         <input type="text" name="cidade" class="form-control" value="<?php echo $cidade; ?>" placeholder="Digite sua Cidade" />
 
         <label class="form-label">Cep</label>
-        <input type="text" name="cep" class="form-control" value="<?php echo $cep; ?>" placeholder="Digite seu Cep" />
+        <input type="text" name="cep" class="form-control" value="<?php echo $cep; ?>" placeholder="Digite seu Cep" /><br>
 
         
 
          <input type="hidden" name='id' value="<?php echo ($_GET['id']); ?>" />
 
-        <input type="submit" name="Update" value="Adicionar" class="btn btn-warning" />
+        <input type="submit" name="Update" value="Adicionar" class="btn btn-warning" /><br>
     </form>
 </body>
 
