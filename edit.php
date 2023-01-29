@@ -26,7 +26,7 @@ if (isset($_POST['Update'])) {
 
         header('Location: listar.php');
     }
-//}
+
 ?>
 
 
