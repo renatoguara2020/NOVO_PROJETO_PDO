@@ -37,15 +37,13 @@ $conn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
     
     <table class="table table-striped table-hover">
 
-        <thead>
-
+        <thead class="table-dark">
             <th scope="col">ID</th>
             <th scope="col">Nome</th>
             <th scope="col">Sobrenome</th>
             <th scope="col">Username</th>
             <th scope="col">Cidade</th>
             <th scope="col">CEP</th>
-
             <th scope="col">Update || Delete</th>
         </thead>
         <?php
