@@ -66,7 +66,7 @@ $conn->exec("SET NAMES 'UTF8' ");
 
         echo '</tr>';
         ?>
-    </tbody>
+     </tbody>
     </table>
     <div class="content d-flex align-items-center bg-light">
       <h2 class="w-100 text-center">Footer #7</h2>
@@ -120,7 +120,7 @@ $conn->exec("SET NAMES 'UTF8' ");
         <div class="row ">
           <div class="col-12 text-center">
             <div class="copyright mt-5 pt-5">
-              <p><small>&copy; 2019-2020 All Rights Reserved.</small></p>
+              <p><small>&copy; 2019-2022 All Rights Reserved.</small></p>
             </div>
           </div>
         </div> 
