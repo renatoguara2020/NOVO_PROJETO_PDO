@@ -1,10 +1,13 @@
 <?php
 
+
+
 $conn = new PDO('mysql:host=localhost; dbname=login', 'root', '');
 
 $result = $conn->query('SELECT * FROM usuarios ORDER BY id ASC');
 $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 $conn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+$conn->exec("SET NAMES 'UTF8' ");
 ?>
 <!DOCTYPE html>
 <html lang="en">
