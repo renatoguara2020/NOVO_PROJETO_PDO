@@ -1,6 +1,7 @@
 <?php
 
-$conn = new PDO('mysql:host=localhost; dbname=login', 'root', '');
+//$conn = new PDO('mysql:host=localhost; dbname=login', 'root', '');
+require_once 'connection.php';
 
 if (isset($_POST['cadastrar'])) {
     if (isset($_POST['first_name'])):
