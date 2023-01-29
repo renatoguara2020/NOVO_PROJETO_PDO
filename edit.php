@@ -80,8 +80,14 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
 </head>
 
 <body style="padding-left: 15px;">
+ 
 
-    <form action="edit.php" method="post">
+<div class="container">
+
+    <form action="edit.php" method="post" class="form-control">
+        
+
+
         <label class="form-label">Nome:</label>
         <input type="text" name="first_name" class="form-control" value="<?php echo $first_name; ?>"  />
         <label class="form-label">Sobrenome:</label>
@@ -100,6 +106,7 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
 
         <input type="submit" name="Update" value="Adicionar" class="btn btn-warning" /><br>
     </form>
+ </div>   
 </body>
 
 </html>

@@ -82,6 +82,7 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
 <body style="padding-left: 15px;">
 
     <form action="edit.php" method="post">
+        <input type="text" name="id" value="<?php echo $id; ?>" disabled>
         <label class="form-label">Nome:</label>
         <input type="text" name="first_name" class="form-control" value="<?php echo $first_name; ?>"  />
         <label class="form-label">Sobrenome:</label>
