@@ -63,6 +63,7 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
  
 
 <div class="container">
+  <div class="row">
 
     <form action="edit.php" method="post" class="form-control">
         
@@ -86,6 +87,7 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
 
         <input type="submit" name="Update" value="Adicionar" class="btn btn-warning" /><br>
     </form>
+  </div>   
  </div>   
 </body>
 
