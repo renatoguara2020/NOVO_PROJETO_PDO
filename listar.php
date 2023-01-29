@@ -1,8 +1,8 @@
 <?php
 
+include_once 'connection.php';
 
-
-$conn = new PDO('mysql:host=localhost; dbname=login', 'root', '');
+//$conn = new PDO('mysql:host=localhost; dbname=login', 'root', '');
 
 $result = $conn->query('SELECT * FROM usuarios ORDER BY id ASC');
 $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -30,11 +30,12 @@ $conn->exec("SET NAMES 'UTF8' ");
     
     <!-- Style CSS -->
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
     <title>Document</title>
 </head>
 
 <body style="padding-left: 15px; padding-right: 15px;"><br><br>
-    
+  
     <!-- <a href="cadastrar.html">Cadastrar Usuário</a> -->
     <a href="cadastrar.html" class="btn btn-success btn-lg">Cadastrar</a><br><br>
     
@@ -60,7 +61,7 @@ $conn->exec("SET NAMES 'UTF8' ");
             echo '<td>' . $row['cidade'] . '</td>';
             echo '<td>' . $row['cep'] . '</td>';
             //echo "<td><a href=\"edit.php?id=$row[id]\">Update</a> | <a href=\"delete.php?id=$row[id]\" onClick=\"return confirm('Are you sure you want to delete?')\">Delete</a></td>";
-            echo "<td><a href=\"edit.php?id=$row[id]\" class=\"btn btn-warning btn-sm\">Update</a> || <a href=\"delete.php?id=$row[id]\"  onClick=\"return confirm('Are you sure you want to delete?')\" class=\"btn btn-danger btn-sm\">Delete</a></td>";
+            echo "<td><a href=\"edit.php?id=$row[id]\" class=\"btn btn-warning btn-sm\"><i class=\"bi bi-pencil-fill\"></i>&nbsp;Update</a> || <a href=\"delete.php?id=$row[id]\"  onClick=\"return confirm('Are you sure you want to delete?')\" class=\"btn btn-danger btn-sm\"><i class=\"bi bi-trash-fill\"></i>&nbsp;Delete</a></td>";
 
         }   
 
@@ -132,6 +133,7 @@ $conn->exec("SET NAMES 'UTF8' ");
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+      
 </body>
 
 </html>
