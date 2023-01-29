@@ -59,7 +59,7 @@ $conn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
             echo '<td>' . $row['cidade'] . '</td>';
             echo '<td>' . $row['cep'] . '</td>';
             //echo "<td><a href=\"edit.php?id=$row[id]\">Update</a> | <a href=\"delete.php?id=$row[id]\" onClick=\"return confirm('Are you sure you want to delete?')\">Delete</a></td>";
-            echo "<td><a href=\"edit.php?id=$row[id]\" class=\"btn btn-warning btn-sm\">Update</a> | <a href=\"delete.php?id=$row[id]\"  onClick=\"return confirm('Are you sure you want to delete?')\" class=\"btn btn-danger btn-sm\">Delete</a></td>";
+            echo "<td><a href=\"edit.php?id=$row[id]\" class=\"btn btn-warning btn-sm\">Update</a> || <a href=\"delete.php?id=$row[id]\"  onClick=\"return confirm('Are you sure you want to delete?')\" class=\"btn btn-danger btn-sm\">Delete</a></td>";
 
         }   
 
