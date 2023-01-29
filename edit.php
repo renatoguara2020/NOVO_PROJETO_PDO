@@ -6,7 +6,7 @@ include_once 'connection.php';
 
 if (isset($_POST['Update'])) {
     $id = $_POST['id'];
-    $first_name = $_POST['first_name'];
+    $first_name = filter_input(INPUT_POST, 'first_name', FILTER_SANITIZE_SPECIAL_CHARS);
     $last_name = $_POST['last_name'];
     $username = $_POST['username'];
     $cidade = $_POST['cidade'];
@@ -79,24 +79,24 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
 <title>Document</title>
 </head>
 
-<body>
+<body style="padding-left: 15px;">
 
     <form action="edit.php" method="post">
         <label class="form-label">Nome:</label>
-        <input type="text" name="first_name" class="form-control" value="<?php echo $first_name; ?>" placeholder="Digite seu Nome" />
+        <input type="text" name="first_name" class="form-control" value="<?php echo $first_name; ?>"  />
         <label class="form-label">Sobrenome:</label>
-        <input type="text" name="last_name" class="form-control" value="<?php echo $last_name; ?>" placeholder="Digite seu Sobrenome" />
+        <input type="text" name="last_name" class="form-control" value="<?php echo $last_name; ?>"  />
         <label class="form-label">Username</label>
-        <input type="text" name="username" class="form-control" value="<?php echo $username; ?>" placeholder="Digite seu Username" />
+        <input type="text" name="username" class="form-control" value="<?php echo $username; ?>"  />
         <label class="form-label">Cidade</label>
-        <input type="text" name="cidade" class="form-control" value="<?php echo $cidade; ?>" placeholder="Digite sua Cidade" />
+        <input type="text" name="cidade" class="form-control" value="<?php echo $cidade; ?>" />
 
         <label class="form-label">Cep</label>
-        <input type="text" name="cep" class="form-control" value="<?php echo $cep; ?>" placeholder="Digite seu Cep" /><br>
+        <input type="text" name="cep" class="form-control" value="<?php echo $cep; ?>"  /><br>
 
         
 
-         <input type="hidden" name='id' value="<?php echo ($_GET['id']); ?>" />
+        <input type="hidden" name='id' value="<?php echo $id; ?>" />
 
         <input type="submit" name="Update" value="Adicionar" class="btn btn-warning" /><br>
     </form>
