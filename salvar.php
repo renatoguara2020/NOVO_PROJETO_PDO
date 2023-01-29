@@ -30,23 +30,22 @@ if (isset($_POST['cadastrar'])) {
     $stmt = $conn->prepare("INSERT INTO usuarios (first_name, last_name, username, cidade, cep)
     VALUES(:first_name, :last_name, :username, :cidade, :cep ) ");
 
-    $stmt->bindValue(':first_name', $firstName, PDO::PARAM_STR);
-    $stmt->bindValue(':last_name', $lastName, PDO::PARAM_STR);
-    $stmt->bindValue(':username', $username, PDO::PARAM_STR);
-    // $stmt->bindValue(':estado', $estado, PDO::PARAM_STR);
-    $stmt->bindValue(':cidade', $cidade, PDO::PARAM_STR);
-    $stmt->bindValue(':cep', $cep, PDO::PARAM_STR);
+    // $stmt->bindValue(':first_name', $firstName, PDO::PARAM_STR);
+    // $stmt->bindValue(':last_name', $lastName, PDO::PARAM_STR);
+    // $stmt->bindValue(':username', $username, PDO::PARAM_STR);
+    // // $stmt->bindValue(':estado', $estado, PDO::PARAM_STR);
+    // $stmt->bindValue(':cidade', $cidade, PDO::PARAM_STR);
+    // $stmt->bindValue(':cep', $cep, PDO::PARAM_STR);
 
-    $stmt->execute();
+    // $stmt->execute();
 
-    // $stmt->execute([
-    //     ':first_name' => $firstName,
-    //     ':last_name' => $lastName,
-    //     ':username' => $username,
-    //     ':estado' => $estado,
-    //     ':cidade' => $cidade,
-    //     ':cep' => $cep,
-    // ]);
+    $stmt->execute([
+        ':first_name' => $firstName,
+        ':last_name' => $lastName,
+        ':username' => $username,
+        ':cidade' => $cidade,
+        ':cep' => $cep,
+    ]);
 
     if ($stmt->rowCount() > 0) {
         echo 'Usuário Cadastrado com Sucesso';
