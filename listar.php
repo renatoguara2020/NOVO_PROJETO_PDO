@@ -46,7 +46,7 @@ $conn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
             <th scope="col">Cidade</th>
             <th scope="col">CEP</th>
 
-            <th scope="col">Update | Delete</th>
+            <th scope="col">Update || Delete</th>
         </thead>
         <?php
         while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
