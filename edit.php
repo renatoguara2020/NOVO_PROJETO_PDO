@@ -8,33 +8,12 @@ if (isset($_POST['Update'])) {
 
     $id = $_POST['id'];
     $first_name = filter_input(INPUT_POST, 'first_name', FILTER_SANITIZE_SPECIAL_CHARS);
-    $last_name = $_POST['last_name'];
-    $username = $_POST['username'];
-    $cidade = $_POST['cidade'];
-    $cep = $_POST['cep'];
+    $last_name = filter_input(INPUT_POST, 'last_name', FILTER_SANITIZE_SPECIAL_CHARS);
+    $username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_SPECIAL_CHARS);
+    $cidade = filter_input(INPUT_POST, 'cidade', FILTER_SANITIZE_SPECIAL_CHARS);
+    $cep = filter_input(INPUT_POST, 'cep', FILTER_SANITIZE_SPECIAL_CHARS);
 
-    if (empty($first_name) || empty($last_name) || empty($username) || empty($cidade) || empty($cep)){
-
-        if (!isset($first_name)):
-            echo '<div class="alert alert-danger"> Digite seu nome </div>';
-        endif;
-        if (!isset($last_name)):
-            echo '<div class="alert alert-danger"> Digite seu sobrenome</div>';
-        endif;
-
-        if (!isset($username)):
-            echo '<div class="alert alert-danger">Digite a seu username</div>';
-        endif;
-
-        if (!isset($cidade)):
-            echo '<div class="alert alert-danger"> Digite sua Cidade</div>';
-        endif;
-
-        if (!isset($cep)):
-            echo '<div class="alert alert-danger"> Digite seu  Cep</div>';
-        endif;
-    } else {
-
+    
         $stmt = $conn->prepare("UPDATE usuarios SET first_name =:first_name, last_name =:last_name, username=:username, cidade=:cidade, cep=:cep WHERE id= :id");
 
         $stmt->bindParam(':id', $id);
@@ -47,7 +26,7 @@ if (isset($_POST['Update'])) {
 
         header('Location: listar.php');
     }
-}
+//}
 ?>
 
 
