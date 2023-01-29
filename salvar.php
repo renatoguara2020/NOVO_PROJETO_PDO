@@ -11,7 +11,7 @@ if (isset($_POST['cadastrar'])) {
     endif;
 
     if (isset($_POST['last_name'])):
-        $lastName = $_POST['last_name'];
+        $lastName = filter_input(INPUT_POST, "last_name", FILTER_SANITIZE_SPECIAL_CHARS);
     endif;
 
     if (isset($_POST['username'])):
