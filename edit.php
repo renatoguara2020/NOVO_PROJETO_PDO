@@ -5,6 +5,7 @@
 include_once 'connection.php';
 
 if (isset($_POST['Update'])) {
+
     $id = $_POST['id'];
     $first_name = filter_input(INPUT_POST, 'first_name', FILTER_SANITIZE_SPECIAL_CHARS);
     $last_name = $_POST['last_name'];
@@ -55,7 +56,7 @@ $id = $_GET['id'];
 
 $stmt = $conn->prepare("SELECT  * FROM usuarios WHERE id=:id");
 
-$stmt->execute(array('id' => $id));
+$stmt->execute(['id' => $id]);
 
 while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
     //$id = $row['id'];
