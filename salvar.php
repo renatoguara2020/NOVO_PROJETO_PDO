@@ -4,8 +4,10 @@
 require_once 'connection.php';
 
 if (isset($_POST['cadastrar'])) {
+
     if (isset($_POST['first_name'])):
-        $firstName = $_POST['first_name'];
+
+        $firstName = filter_input(INPUT_POST, "first_name", FILTER_SANITIZE_SPECIAL_CHARS);
     endif;
 
     if (isset($_POST['last_name'])):
