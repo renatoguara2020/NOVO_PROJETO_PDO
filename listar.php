@@ -37,7 +37,7 @@ $conn->exec("SET NAMES 'UTF8' ");
 <body style="padding-left: 15px; padding-right: 15px;"><br><br>
   
     <!-- <a href="cadastrar.html">Cadastrar Usuário</a> -->
-    <a href="cadastrar.html" class="btn btn-success btn-lg">Cadastrar</a><br><br>
+    <a href="cadastrar.html" class="btn btn-success btn-lg"><i class="bi bi-check2-circle"></i>&nbsp;Cadastrar</a><br><br>
     
     <table class="table table-striped table-hover">
 

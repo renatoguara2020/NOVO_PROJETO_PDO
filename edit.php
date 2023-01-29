@@ -1,6 +1,7 @@
 <?php
 
 //error_reporting(0);
+error_reporting(E_ALL|E_STRICT);
 
 include_once 'connection.php';
 
@@ -39,6 +40,7 @@ $stmt->execute(['id' => $id]);
 
 while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
     //$id = $row['id'];
+    //$stmt->lastInsertedId = $row['id'];
     $first_name = $row['first_name'];
     $last_name = $row['last_name'];
     $username = $row['username'];
@@ -68,7 +70,7 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
     <form action="edit.php" method="post" class="form-control">
         
 
-
+        
         <label class="form-label">Nome:</label>
         <input type="text" name="first_name" class="form-control" value="<?php echo $first_name; ?>"  />
         <label class="form-label">Sobrenome:</label>
