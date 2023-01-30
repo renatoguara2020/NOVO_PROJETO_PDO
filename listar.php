@@ -48,6 +48,7 @@ $conn->exec("SET NAMES 'UTF8' ");
             <th scope="col">Username</th>
             <th scope="col">Cidade</th>
             <th scope="col">CEP</th>
+            <th scope="col">Estado</th>
             <th scope="col">Update || Delete</th>
         </thead>
         <?php
@@ -60,6 +61,7 @@ $conn->exec("SET NAMES 'UTF8' ");
             echo '<td>' . $row['username'] . '</td>';
             echo '<td>' . $row['cidade'] . '</td>';
             echo '<td>' . $row['cep'] . '</td>';
+            echo '<td>' . $row['estado'] . '</td>';
             //echo "<td><a href=\"edit.php?id=$row[id]\">Update</a> | <a href=\"delete.php?id=$row[id]\" onClick=\"return confirm('Are you sure you want to delete?')\">Delete</a></td>";
             echo "<td><a href=\"edit.php?id=$row[id]\" class=\"btn btn-warning btn-sm\"><i class=\"bi bi-pencil-fill\"></i>&nbsp;Update</a> || <a href=\"delete.php?id=$row[id]\"  onClick=\"return confirm('Are you sure you want to delete?')\" class=\"btn btn-danger btn-sm\"><i class=\"bi bi-trash-fill\"></i>&nbsp;Delete</a></td>";
 

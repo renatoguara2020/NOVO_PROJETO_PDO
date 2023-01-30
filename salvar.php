@@ -29,9 +29,12 @@ if (isset($_POST['cadastrar'])) {
     if (isset($_POST['cep'])):
         $cep = $_POST['cep'];
     endif;
+    if (isset($_POST['estado'])):
+        $estado = $_POST['estado'];
+    endif;    
 
-    $stmt = $conn->prepare("INSERT INTO usuarios (first_name, last_name, username, cidade, cep)
-    VALUES(:first_name, :last_name, :username, :cidade, :cep ) ");
+    $stmt = $conn->prepare("INSERT INTO usuarios (first_name, last_name, username, cidade, cep, estado)
+    VALUES(:first_name, :last_name, :username, :cidade, :cep, :estado)");
 
     // $stmt->bindValue(':first_name', $firstName, PDO::PARAM_STR);
     // $stmt->bindValue(':last_name', $lastName, PDO::PARAM_STR);
@@ -39,6 +42,7 @@ if (isset($_POST['cadastrar'])) {
     // // $stmt->bindValue(':estado', $estado, PDO::PARAM_STR);
     // $stmt->bindValue(':cidade', $cidade, PDO::PARAM_STR);
     // $stmt->bindValue(':cep', $cep, PDO::PARAM_STR);
+
 
     // $stmt->execute();
 
@@ -48,6 +52,7 @@ if (isset($_POST['cadastrar'])) {
         ':username' => $username,
         ':cidade' => $cidade,
         ':cep' => $cep,
+        ':estado' => $estado,
     ]);
 
     if ($stmt->rowCount() > 0) {
