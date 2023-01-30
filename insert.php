@@ -1,4 +1,6 @@
 <?php
+
+$id = $_GET['id'];
 try {
   $pdo = new PDO('mysql:host=localhost;dbname=meuBancoDeDados', $username, $password);
   $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
