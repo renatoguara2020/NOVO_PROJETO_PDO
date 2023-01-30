@@ -36,7 +36,7 @@ $id = $_GET['id'];
 
 $stmt = $conn->prepare("SELECT  * FROM usuarios WHERE id=:id");
 
-$stmt->execute(['id' => $id]);
+$stmt->execute(['id' => $id]); //$stmt->execute(array('id' => $id));
 
 while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
     //$id = $row['id'];
