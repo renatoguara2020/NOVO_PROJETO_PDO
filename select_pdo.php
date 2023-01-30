@@ -1,8 +1,11 @@
 <?php
-$consulta = $pdo->query("SELECT nome, usuario FROM login;");
+
+include_once 'connection.php';
+
+$stmt = $conn->prepare("SELECT nome, usuario FROM login;");
 
 
-while ($linha = $consulta->fetch(PDO::FETCH_ASSOC)) {
+while ($linha = $stmt->fetch(PDO::FETCH_ASSOC)) {
     echo "Nome: {$linha['nome']} - Usuário: {$linha['usuario']}<br />";
 }
 ?>
