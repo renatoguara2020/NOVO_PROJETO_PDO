@@ -16,7 +16,9 @@ try {
   if($stmt->rowCount() > 0):
 
     echo 'Usuário cadastrado com sucesso';
+
   endif;
+  
 } catch(PDOException $e) {
 
   echo 'Error Throwable: ' . $e->getMessage(). ' '. $e->getTraceAsString();
