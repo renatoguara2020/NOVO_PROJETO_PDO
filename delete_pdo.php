@@ -1,6 +1,8 @@
 <?php
 $id = 5;
 
+$id = $_GET['id'];
+
 try {
   $pdo = new PDO('mysql:host=localhost;dbname=meuBancoDeDados', $username, $password);
   $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -9,7 +11,10 @@ try {
   $stmt->bindParam(':id', $id);
   $stmt->execute();
 
-  echo $stmt->rowCount();
+  if($stmt->rowCount() > 0){
+
+    echo 'Usuário cadastrado com sucesso';
+  }
 } catch(PDOException $e) {
   echo 'Error: ' . $e->getMessage();
 }
