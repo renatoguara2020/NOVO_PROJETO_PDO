@@ -13,10 +13,10 @@ try {
   $stmt->bindParam(':id', $id);
   $stmt->execute([':id' => $id]); // IGUAL MESMO VALOR $stmt->execute(array(':id' => $id));
 
-  if($stmt->rowCount() > 0){
+  if($stmt->rowCount() > 0):
 
     echo 'Usuário cadastrado com sucesso';
-  }
+  endif;
 } catch(PDOException $e) {
 
   echo 'Error Throwable: ' . $e->getMessage(). ' '. $e->getTraceAsString();
