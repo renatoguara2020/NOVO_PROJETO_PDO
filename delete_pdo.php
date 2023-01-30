@@ -4,12 +4,13 @@ $id = 5;
 $id = $_GET['id'];
 
 try {
-  $pdo = new PDO('mysql:host=localhost;dbname=meuBancoDeDados', $username, $password);
+  $conn = new PDO('mysql:host=localhost;dbname=meuBancoDeDados', $username, $password);
   $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-  $stmt = $pdo->prepare('DELETE FROM minhaTabela WHERE id = :id');
+  $stmt = $conn->prepare('DELETE FROM minhaTabela WHERE id = :id');
   $stmt->bindParam(':id', $id);
-  $stmt->execute();
+  $stmt->execute([':id' => $id]);
+  $stmt->execute(array(':id' => $id));
 
   if($stmt->rowCount() > 0){
 
